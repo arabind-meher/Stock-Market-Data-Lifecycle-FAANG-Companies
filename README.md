@@ -1,40 +1,49 @@
-# Stock Market Data Lifecycle Project
+
+# Stock Data Lifecycle Project
 
 ## Overview
+This project implements a complete **Stock Market Data Lifecycle**:
+- Fetches historical stock price data using **Yahoo Finance API**.
+- Stores raw and cleaned data into a **MySQL** database using **SQLAlchemy**.
+- Applies **data cleaning** and **feature engineering** (moving averages, volatility, RSI).
+- Conducts **interactive Exploratory Data Analysis (EDA)** with **Matplotlib**, **Seaborn**, and **ipywidgets**.
 
-This project implements a full data lifecycle process for stock market data, focusing on FAANG companies (Facebook,
-Amazon, Apple, Netflix, and Google).  
-It covers data extraction, storage, feature engineering, exploratory data analysis (EDA), and visualization, preparing
-the data for future machine learning models.
+The project is organized using **Object-Oriented Programming (OOP)** principles for better modularity and scalability.
+
+---
+
+## Features
+- **Automated Data Fetching** from Yahoo Finance.
+- **Database Management** with SQLAlchemy (MySQL backend).
+- **Preprocessing and Feature Engineering** (MA20, MA50, Volatility, RSI14).
+- **Interactive Data Visualization** using widgets.
+- **Versioned Release:** v1.0.0 (First Stable Release).
 
 ---
 
 ## Project Structure
-
-- **Database**: MySQL
-- **Programming Language**: Python 3.12.6
-- **IDE**: PyCharm Professional (Student License)
-- **Data Source**: Yahoo Finance via yfinance API
-- **Data Scope**: 2019 to 2025 (up to the latest available data)
+```
+├── scripts/
+│   ├── fetch_data.py
+│   ├── preprocess_data.py
+│   ├── feature_engineering.py
+│   └── eda.ipynb
+├── database_manager.py
+├── feature_engineer.py
+├── README.md
+```
 
 ---
 
-## Key Steps
-
-1. **Data Extraction**
-    - Automated fetching of stock data using Yahoo Finance API.
-
-2. **Data Storage**
-    - Raw data stored into MySQL (`raw_stock_data` table).
-    - Feature engineered data stored separately (`feature_stock_data` table).
-
-3. **Feature Engineering**
-    - Added technical indicators: Moving Averages, Volatility, RSI, and Daily Returns.
-
-4. **Exploratory Data Analysis (EDA)**
-    - Basic visualizations: Line plots for stock prices.
-    - COVID-19 Crash analysis (February - April 2020).
-    - Volatility comparison across stocks.
+## Tech Stack
+- **Language:** Python
+- **Database:** MySQL
+- **Libraries:** 
+  - pandas
+  - yfinance
+  - SQLAlchemy
+  - matplotlib, seaborn
+  - ipywidgets
 
 ---
 
@@ -42,54 +51,38 @@ the data for future machine learning models.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/stock-lifecycle-project.git
+   git clone https://github.com/your-username/your-repo-name.git
    ```
 
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate    # Linux/Mac
-   .venv\Scripts\activate      # Windows
-   ```
+2. Set up a MySQL database and update connection strings if needed.
 
-3. Install required packages:
+3. Install required libraries:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Setup MySQL database:
-    - Create the `stock` database using provided `schema.sql`.
-    - Update database credentials in `config.yaml`.
-
-5. Run the following scripts sequentially:
-    - `scripts/fetch_data.py`
-    - `scripts/insert_data_mysql.py`
-    - `scripts/feature_engineering.py`
-    - `scripts/eda.py` (or EDA.ipynb)
+4. Run scripts sequentially:
+   - Fetch stock data
+   - Preprocess the data
+   - Apply feature engineering
+   - Explore using EDA notebook
 
 ---
 
-## Tools and Libraries Used
+## Version History
 
-- **Python** (pandas, matplotlib, seaborn, SQLAlchemy, yfinance, ipywidgets)
-- **MySQL**
-- **SQLAlchemy**
-- **PyCharm IDE**
-
----
-
-## Future Improvements
-
-- Build and train machine learning models for price prediction or trend classification.
-- Deploy a dashboard for live stock analysis.
-- Integrate news sentiment analysis as external features.
+| Version | Description               | Date        |
+|---------|----------------------------|-------------|
+| v1.0.0  | Initial complete pipeline | May 2025    |
 
 ---
 
-## Author
-
-- **Name**: Arabind Meher
-- **LinkedIn**: [linkedin.com/in/arabind-meher](https://www.linkedin.com/in/arabind-meher)
-- **GitHub**: [github.com/arabind-meher](https://github.com/arabind-meher)
+## License
+This project is licensed under the MIT License.
 
 ---
+
+# Future Improvements
+- Add ML models for stock trend prediction.
+- Dockerize the entire project for easier deployment.
+- Scheduled auto-updates for fetching latest data.
