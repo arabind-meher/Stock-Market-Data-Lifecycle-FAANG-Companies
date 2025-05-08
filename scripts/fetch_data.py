@@ -9,4 +9,3 @@ if __name__ == "__main__":
     df = fetcher.fetch_multiple_stocks(tickers)
 
     print(df.head())  # Check output
-    # (Later) db.insert_dataframe(df, 'raw_stock_data')

@@ -23,7 +23,7 @@ class StockFetcher:
 
         if not data.empty:
             if isinstance(data.columns, pd.MultiIndex):
-                # If data columns are multi-indexed (sometimes happens with yfinance), fix it
+                # If data columns are multi-indexed
                 data.columns = data.columns.get_level_values(1)
 
             data.reset_index(inplace=True)

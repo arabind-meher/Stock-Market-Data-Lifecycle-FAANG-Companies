@@ -37,7 +37,7 @@ class DataCleaner:
         # Convert 'date' to datetime format (if needed)
         df["date"] = pd.to_datetime(df["date"])
 
-        # Optional: Remove rows with impossible values (negative prices/volume)
+        # Remove rows with impossible values (negative prices/volume)
         df = df[
             (df["open_price"] >= 0)
             & (df["high_price"] >= 0)
